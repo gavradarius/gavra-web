@@ -1,0 +1,11 @@
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-menu {
+    width: 350px ;
+    display: flex;
+    justify-content: space-around;
+}
+
