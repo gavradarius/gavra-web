@@ -1,33 +1,64 @@
 <!DOCTYPE html>
-<html lang="id-ID">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belajar HTML</title>
-    <style>
-        .backgroundbiru {
-            background-color: blue;
-            padding: 8px;
-        }
-        .backgroundhijau {
-            background: url("gambar.jpg");
-            background-size: cover;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalkulator</title>
+
+  <!-- Font modern -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="backgroundhijau">
-    <h1>
-        INI JUDUL
-<h2>
-    JUDUL
-</h2>
-<h3 class="backgroundbiru">JUDUL</h3>
-    </h1>
-    <p>
-        Belajar website sangat menyenangkan
-        <a class="backgroundbiru href="https://www.youtube.com/results?search_query=web+programming+unpas+html+dasar" target="_blank">
-            Di sini
-        </a>
-    </p>
+<body>
+  <div class="kalkulator">
+    <input type="text" id="display" class="display" disabled />
+
+    <div class="botton">
+      <button class="btn" onclick="appendValue('7')">7</button>
+      <button class="btn" onclick="appendValue('8')">8</button>
+      <button class="btn" onclick="appendValue('9')">9</button>
+      <button class="btn operator" onclick="appendValue('/')">÷</button>
+
+      <button class="btn" onclick="appendValue('4')">4</button>
+      <button class="btn" onclick="appendValue('5')">5</button>
+      <button class="btn" onclick="appendValue('6')">6</button>
+      <button class="btn operator" onclick="appendValue('*')">×</button>
+
+      <button class="btn" onclick="appendValue('1')">1</button>
+      <button class="btn" onclick="appendValue('2')">2</button>
+      <button class="btn" onclick="appendValue('3')">3</button>
+      <button class="btn operator" onclick="appendValue('-')">−</button>
+
+      <button class="btn" onclick="appendValue('0')">0</button>
+      <button class="btn" onclick="appendValue('.')">.</button>
+      <button class="btn operator" onclick="calculate()">=</button>
+      <button class="btn operator" onclick="appendValue('+')">+</button>
+
+      <button class="btn clear" onclick="clearDisplay()">Hapus</button>
+    </div>
+  </div>
+  <script src="mine.js"></script>
+
+  <script>
+    const display = document.getElementById('display');
+
+    function appendValue(value) {
+      display.value += value;
+    }
+
+    function clearDisplay() {
+      display.value = '';
+    }
+
+    function calculate() {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = 'Error';
+      }
+    }
+  </script>
 </body>
 </html>
